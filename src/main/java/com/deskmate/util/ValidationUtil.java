@@ -1,5 +1,7 @@
 package com.deskmate.util;
 
+import com.deskmate.exception.ValidationException;
+
 public final class ValidationUtil {
     private ValidationUtil() {}
 
