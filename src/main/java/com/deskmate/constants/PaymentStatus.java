@@ -1,4 +1,4 @@
-package com.deskmate.enums;
+package com.deskmate.constants;
 
 public enum PaymentStatus {
     SUCCESS, FAILED
