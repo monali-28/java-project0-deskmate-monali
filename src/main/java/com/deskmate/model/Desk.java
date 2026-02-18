@@ -1,4 +1,5 @@
 package com.deskmate.model;
+
 import java.time.LocalDateTime;
 
 public class Desk {
