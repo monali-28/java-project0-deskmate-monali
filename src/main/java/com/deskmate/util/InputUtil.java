@@ -16,5 +16,7 @@ public final class InputUtil {
         System.out.print(prompt);
         return sc.nextLine().trim();
     }
+    
+    //we can add additional method 
 }
 
