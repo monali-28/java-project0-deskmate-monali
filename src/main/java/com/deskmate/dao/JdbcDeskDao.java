@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.deskmate.exception.DatabaseOperationException;
+import com.deskmate.exception.DataBaseOperationException;
 //import com.deskmate.exception.DatabaseOperationException;
 import com.deskmate.model.Desk;
 import com.deskmate.util.DbConnectionFactory;
@@ -29,7 +29,7 @@ public class JdbcDeskDao implements DeskDao {
 	                return rs.getLong(1);
 	            }
 	        } catch (SQLException e) {
-	            throw new DatabaseOperationException("Failed to insert desk", e);
+	            throw new DataBaseOperationException("Failed to insert desk", e);
 	        }
 	    }
 
@@ -41,7 +41,7 @@ public class JdbcDeskDao implements DeskDao {
 	            ps.setLong(1, deskId);
 	            ps.executeUpdate();
 	        } catch (SQLException e) {
-	            throw new DatabaseOperationException("Failed to deactivate desk", e);
+	            throw new DataBaseOperationException("Failed to deactivate desk", e);
 	        }
 	    }
 
@@ -56,7 +56,7 @@ public class JdbcDeskDao implements DeskDao {
 	                return Optional.of(map(rs));
 	            }
 	        } catch (SQLException e) {
-	            throw new DatabaseOperationException("Failed to find desk by code", e);
+	            throw new DataBaseOperationException("Failed to find desk by code", e);
 	        }
 	    }
 
@@ -71,7 +71,7 @@ public class JdbcDeskDao implements DeskDao {
 	                return Optional.of(map(rs));
 	            }
 	        } catch (SQLException e) {
-	            throw new DatabaseOperationException("Failed to find desk by id", e);
+	            throw new DataBaseOperationException("Failed to find desk by id", e);
 	        }
 	    }
 
@@ -85,7 +85,7 @@ public class JdbcDeskDao implements DeskDao {
 	            while (rs.next()) out.add(map(rs));
 	            return out;
 	        } catch (SQLException e) {
-	            throw new DatabaseOperationException("Failed to list active desks", e);
+	            throw new DataBaseOperationException("Failed to list active desks", e);
 	        }
 	    }
 
