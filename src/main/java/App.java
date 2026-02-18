@@ -1,14 +1,9 @@
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
-
 import com.deskmate.config.AppConfig;
-//import com.deskmate.AppConfig;
-import com.deskmate.enums.Role;
-import com.deskmate.exception.DataBaseOperationException.DatabaseOperationException;
-import com.deskmate.exception.DoubleBookingException;
-import com.deskmate.exception.EntityNotFoundException;
-import com.deskmate.exception.ValidationException;
+import com.deskmate.constants.Role;
+import com.deskmate.exception.*;
 import com.deskmate.util.InputUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class App {
     private static final Logger log = LogManager.getLogger(App.class);
@@ -38,17 +33,17 @@ public class App {
 //                    }
 //                    case 2 -> cfg.bookingController().menu();
 //                    case 3 -> cfg.reportController().menu();
-//                    case 0 -> {
-//                        log.info("DeskMate stopped by user={}", user);
-//                        System.out.println("Bye!");
-//                        return;
-//                    }
+                    case 0 -> {
+                        log.info("DeskMate stopped by user={}", user);
+                        System.out.println("Bye!");
+                        return;
+                    }
                     default -> System.out.println("Invalid option.");
                 }
             } catch (ValidationException | EntityNotFoundException | DoubleBookingException e) {
                 log.warn("User error: {}", e.getMessage());
                 System.out.println("ERROR: " + e.getMessage());
-            } catch (DatabaseOperationException e) {
+            } catch (DataBaseOperationException e) {
                 log.error("DB error", e);
                 System.out.println("ERROR: Database operation failed. Please retry.");
             } catch (Exception e) {
@@ -58,4 +53,3 @@ public class App {
         }
     }
 }
-	
